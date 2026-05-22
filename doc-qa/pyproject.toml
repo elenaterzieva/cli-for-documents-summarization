@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "doc-qa"
+version = "0.1.0"
+description = "Document Q&A with citation tracking and multi-hop question support"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40.0",
+    "click>=8.1",
+    "pdfplumber>=0.11",
+    "rich>=13.0",
+    "tiktoken>=0.7",
+    "rank-bm25>=0.2.2",
+]
+
+[project.scripts]
+doc-qa = "doc_qa.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["doc_qa*"]
