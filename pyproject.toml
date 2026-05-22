@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "pdf-summarizer"
+version = "0.1.0"
+description = "CLI tool for summarizing long PDFs using Claude with configurable chunking strategies"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40.0",
+    "click>=8.1",
+    "pdfplumber>=0.11",
+    "rich>=13.0",
+    "tiktoken>=0.7",
+]
+
+[project.scripts]
+pdf-summarizer = "pdf_summarizer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf_summarizer*"]
